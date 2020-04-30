@@ -557,7 +557,7 @@ class SpotifyWebPlayer extends React.PureComponent<IProps, IState> {
   };
 
   private setAlbumImage(album: IWebPlaybackAlbum): string {
-    const width = Math.min(...album.images.map(d => d.width));
+    const width = Math.max(...album.images.map(d => d.width));
     const thumb: IWebPlaybackImage =
       album.images.find(d => d.width === width) || ({} as IWebPlaybackImage);
 
@@ -712,7 +712,7 @@ class SpotifyWebPlayer extends React.PureComponent<IProps, IState> {
         } else if (this.player) {
           const state = (await this.player.getCurrentState()) as IWebPlaybackState;
 
-          /* istanbul ignore else */
+          /* istanbul ignore els */
           if (state) {
             const position = state.position / state.track_window.current_track.duration_ms;
 
