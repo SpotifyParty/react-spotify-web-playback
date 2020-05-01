@@ -118,8 +118,7 @@
   ],
   "husky": {
     "hooks": {
-      "post-merge": "ts-node tools update",
-      "pre-commit": "ts-node tools has-commits && lint-staged"
+      "post-merge": "ts-node tools update"
     }
   }
 }
